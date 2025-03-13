@@ -1,3 +1,4 @@
+using CRJBlazorWeb.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace CRJBlazorWeb.Data;

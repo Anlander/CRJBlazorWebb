@@ -3,6 +3,7 @@ using System;
 using CRJBlazorWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRJBlazorWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250313145552_SeedInit")]
+    partial class SeedInit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.5");
@@ -35,6 +38,12 @@ namespace CRJBlazorWeb.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("INTEGER");
@@ -59,6 +68,9 @@ namespace CRJBlazorWeb.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
@@ -77,6 +89,8 @@ namespace CRJBlazorWeb.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
+
+                    b.HasIndex("ProductsId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -135,15 +149,6 @@ namespace CRJBlazorWeb.Migrations
                             Description = "This is product 3",
                             Image = "https://i.imgur.com/QkIa5tT.jpeg",
                             Name = "Product 3",
-                            Price = 100.0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AvailableAmount = 100,
-                            Description = "This is christers product!",
-                            Image = "https://i.imgur.com/QkIa5tT.jpeg",
-                            Name = "Uniq product 1337",
                             Price = 100.0
                         });
                 });
@@ -274,6 +279,17 @@ namespace CRJBlazorWeb.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("CRJBlazorWeb.Data.ApplicationUser", b =>
+                {
+                    b.HasOne("CRJBlazorWeb.Models.Products", "Products")
+                        .WithMany()
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
