@@ -2786,11 +2786,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fille\\RiderProjects\\CRJBlazorWeb\\CRJBlazorWeb\\CRJBlazorWeb.csproj",
+      "projectUniqueName": "C:\\Users\\fille\\dotdev\\CRJBlazorWebb\\CRJBlazorWeb\\CRJBlazorWeb.csproj",
       "projectName": "CRJBlazorWeb",
-      "projectPath": "C:\\Users\\fille\\RiderProjects\\CRJBlazorWeb\\CRJBlazorWeb\\CRJBlazorWeb.csproj",
+      "projectPath": "C:\\Users\\fille\\dotdev\\CRJBlazorWebb\\CRJBlazorWeb\\CRJBlazorWeb.csproj",
       "packagesPath": "C:\\Users\\fille\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fille\\RiderProjects\\CRJBlazorWeb\\CRJBlazorWeb\\obj\\",
+      "outputPath": "C:\\Users\\fille\\dotdev\\CRJBlazorWebb\\CRJBlazorWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fille\\AppData\\Roaming\\NuGet\\NuGet.Config",
