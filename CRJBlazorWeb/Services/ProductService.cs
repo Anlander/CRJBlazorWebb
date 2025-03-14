@@ -11,7 +11,7 @@ public class ProductService : IProductService
     {
         _context = context;
     }
-    public async Task<List<Products>> GetProducts()
+    public async Task<List<Product>> GetProducts()
     {
         var products = await _context.Products.ToListAsync();
         return products;

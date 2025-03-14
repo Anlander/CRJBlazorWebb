@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CRJBlazorWeb.Models;
 
-public class Products
+public class Product
 {
     public int Id { get; set; }
 
