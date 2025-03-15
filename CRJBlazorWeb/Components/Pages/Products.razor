@@ -27,7 +27,7 @@ else{
 
 
 @code {
-  List<CRJBlazorWeb.Models.Products> products = new List<CRJBlazorWeb.Models.Products>();
+  List<Product> products = new List<Product>();
   protected override async Task OnInitializedAsync()
   {
     products = await ProductService.GetProducts();

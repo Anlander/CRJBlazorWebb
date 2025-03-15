@@ -259,3 +259,13 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+CRJBlazorWeb/obj/CRJBlazorWeb.csproj.nuget.dgspec.json
+CRJBlazorWeb/obj/CRJBlazorWeb.csproj.nuget.g.props
+CRJBlazorWeb/obj/CRJBlazorWeb.csproj.nuget.g.targets
+CRJBlazorWeb/obj/project.assets.json
+CRJBlazorWeb/obj/project.nuget.cache
+CRJBlazorWeb/obj/Debug/net8.0/CRJBlazorWeb.AssemblyInfo.cs
+CRJBlazorWeb/obj/Debug/net8.0/CRJBlazorWeb.AssemblyInfoInputs.cache
+CRJBlazorWeb/obj/Debug/net8.0/CRJBlazorWeb.assets.cache
+CRJBlazorWeb/obj/Debug/net8.0/CRJBlazorWeb.csproj.AssemblyReference.cache
+CRJBlazorWeb/obj/Debug/net8.0/CRJBlazorWeb.GeneratedMSBuildEditorConfig.editorconfig
