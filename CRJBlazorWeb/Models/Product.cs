@@ -6,15 +6,15 @@ public class Product
 {
     public int Id { get; set; }
 
-    public required string Name { get; set; }
+    public string Name { get; set; }
     [Required]
-    public required string Description { get; set; }
+    public string Description { get; set; }
 
     [Required]
-    public required Double Price { get; set; }
+    public Double Price { get; set; }
 
     [Required]
-    public required string Image { get; set; }
+    public string Image { get; set; }
     public int AvailableAmount { get; set; } = 100;
 }
 

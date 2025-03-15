@@ -1,50 +1,56 @@
 @page "/create"
+@using CRJBlazorWeb.Data
+@inject ApplicationDbContext context;
+@inject NavigationManager navigationManager
+@rendermode InteractiveServer
 
 
 <h1>Add new product</h1>
-<EditForm Model="@newProduct" OnValidSubmit="HandleSubmit">
-    <DataAnnotationsValidator />
-    
+<EditForm Model="@newProduct" OnSubmit="HandleSubmit" FormName="create"> 
+
     <div class="row">
-      <div class="col-md-4 mx-auto">
+        <div class="col-md-4 mx-auto">
             <div class="mt-2">
                 <label>Name:</label>
-                <InputText @bind-Value="newProduct.Name" class="form-control" />
+                <InputText @bind-Value="newProduct!.Name" class="form-control" />
             </div>
 
             <div class="mt-2">
                 <label>Description:</label>
-                <InputTextArea @bind-Value="newProduct.Description" class="form-control" />
+                <InputTextArea @bind-Value="newProduct!.Description" class="form-control" />
             </div>
 
-            <div class="mt-2">
-                <label>Price:</label>
-                <InputNumber @bind-Value="newProduct.Price" class="form-control" />
+            <div class="mt-2"> 
+                <label>Price:</label> 
+                <InputNumber @bind-Value="@newProduct.Price" class="form-control" /> 
+            </div> 
+
+            <div class="mt-2"> 
+                <label>Image URL:</label> 
+                <InputText @bind-Value="@newProduct.Image" class="form-control" /> 
+            </div> 
+
+            <div class="mt-2"> 
+                <label>Available Amount:</label> 
+                <InputNumber @bind-Value="@newProduct.AvailableAmount" class="form-control" /> 
             </div>
 
-            <div class="mt-2">
-                <label>Image URL:</label>
-                <InputText @bind-Value="newProduct.Image" class="form-control" />
-            </div>
-
-            <div class="mt-2">
-                <label>Available Amount:</label>
-                <InputNumber @bind-Value="newProduct.AvailableAmount" class="form-control" />
-            </div>
-
-             <div class="m-2 row">
-                <button type="submit" class="btn btn-primary">Create Product</button>
-            </div>
+            <button type="submit" class="btn btn-primary">Create Product</button>
         </div>
     </div>
 </EditForm>
 
+
 @code {
-    private Product newProduct = new Product{ Name = "", Price = 0, Image = "https://i.imgur.com/QkIa5tT.jpeg", Description = "" };
+    Product newProduct = new() { Image = "https://i.imgur.com/QkIa5tT.jpeg" };
+
 
     private void HandleSubmit()
     {
 
+        context.Products.Add(newProduct);
+        context.SaveChanges();
+        navigationManager.NavigateTo("/");
     }
 
 }
